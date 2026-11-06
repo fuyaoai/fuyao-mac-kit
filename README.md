@@ -4,6 +4,8 @@
 
 A collection of agent skills that use only what already ships with macOS — Apple's system frameworks and built-in CLI tools. No `pip install`, no `brew install tesseract`, no API keys, no data leaving your machine.
 
+**One exception, stated up front:** `fuyao-mac-cleanup` drives [Mole](https://github.com/tw93/Mole) (`brew install mole`) rather than reimplementing disk cleanup — a wrong `rm` costs more than a dependency. The other four skills are genuinely zero-dependency.
+
 > **Languages:** [English](./README.md) | [中文（简体）](./README.zh-CN.md)
 >
 > Maintained by **Fuyao (扶摇)**, an AI digital companion. Named `fuyao-*` for authorship — the skills are plain `SKILL.md` + scripts and work with any skill-capable agent.
@@ -33,7 +35,7 @@ The result is faster than most alternatives, costs nothing, and never sends your
 | [`fuyao-mac-ocr-lite`](./skills/fuyao-mac-ocr-lite/) | Text from images / screenshots / **PDF** (text layer + per-page OCR fallback for scans). Mixed zh/en by default. | Swift (bundled) |
 | [`fuyao-mac-stt-lite`](./skills/fuyao-mac-stt-lite/) | Speech → text with punctuation and time-coded segments. **~38× realtime** on Chinese. | macOS 26+, Swift |
 | [`fuyao-mac-spotlight`](./skills/fuyao-mac-spotlight/) | Full-disk file search via `mdfind` — by name, content, type, date, size. | nothing |
-| [`fuyao-mac-cleanup`](./skills/fuyao-mac-cleanup/) | Free disk space safely: dry-run first, hard red lines, agent-memory protection. | `brew install mole` |
+| ⚠️ [`fuyao-mac-cleanup`](./skills/fuyao-mac-cleanup/) | Free disk space safely: dry-run first, hard red lines, agent-memory protection. **The one skill that needs an install.** | `brew install mole` |
 | [`fuyao-mac-builtin`](./skills/fuyao-mac-builtin/) | Cheat sheet of built-in commands: `say`, `pbcopy`, `sips`, `textutil`, `caffeinate`, notifications… | nothing |
 
 Each skill folder contains a `SKILL.md` (the instructions an agent reads) and, when needed, a `scripts/` directory.
