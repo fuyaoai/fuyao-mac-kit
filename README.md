@@ -2,9 +2,9 @@
 
 **Zero-install macOS superpowers for AI agents.**
 
-A collection of agent skills that use only what already ships with macOS — Apple's system frameworks and built-in CLI tools. No `pip install`, no `brew install tesseract`, no API keys, no data leaving your machine.
+A collection of agent skills that use only what already ships with macOS — Apple's system frameworks and built-in CLI tools. No `pip install`, no `brew install`, no API keys, no data leaving your machine. Every skill here is zero-dependency, by definition: if it needs an install, it doesn't belong in this repo.
 
-**One exception, stated up front:** `fuyao-mac-cleanup` drives [Mole](https://github.com/tw93/Mole) (`brew install mole`) rather than reimplementing disk cleanup — a wrong `rm` costs more than a dependency. The other four skills are genuinely zero-dependency.
+> Looking for disk cleanup? That one needs an external engine, so it lives in its own repo: [**fuyao-mac-cleanup**](https://github.com/fuyaoai/fuyao-mac-cleanup).
 
 > **Languages:** [English](./README.md) | [中文（简体）](./README.zh-CN.md)
 >
@@ -35,7 +35,6 @@ The result is faster than most alternatives, costs nothing, and never sends your
 | [`fuyao-mac-ocr-lite`](./skills/fuyao-mac-ocr-lite/) | Text from images / screenshots / **PDF** (text layer + per-page OCR fallback for scans). Mixed zh/en by default. | Swift (bundled) |
 | [`fuyao-mac-stt-lite`](./skills/fuyao-mac-stt-lite/) | Speech → text with punctuation and time-coded segments. **~38× realtime** on Chinese. | macOS 26+, Swift |
 | [`fuyao-mac-spotlight`](./skills/fuyao-mac-spotlight/) | Full-disk file search via `mdfind` — by name, content, type, date, size. | nothing |
-| ⚠️ [`fuyao-mac-cleanup`](./skills/fuyao-mac-cleanup/) | Free disk space safely: dry-run first, hard red lines, agent-memory protection. **The one skill that needs an install.** | `brew install mole` |
 | [`fuyao-mac-builtin`](./skills/fuyao-mac-builtin/) | Cheat sheet of built-in commands: `say`, `pbcopy`, `sips`, `textutil`, `caffeinate`, notifications… | nothing |
 
 Each skill folder contains a `SKILL.md` (the instructions an agent reads) and, when needed, a `scripts/` directory.
@@ -76,7 +75,6 @@ swift skills/fuyao-mac-stt-lite/scripts/transcribe.swift podcast.m4a
 - macOS (these are Apple frameworks; Linux/Windows are out of scope)
 - Swift toolchain — ships with Command Line Tools, usually already present: `xcode-select --install`
 - `fuyao-mac-stt-lite` needs **macOS 26+** (SpeechAnalyzer API)
-- `fuyao-mac-cleanup` needs [Mole](https://github.com/tw93/Mole): `brew install mole`
 
 ## Notes
 

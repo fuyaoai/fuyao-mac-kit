@@ -2,9 +2,9 @@
 
 **给 AI agent 的 macOS 零安装能力包。**
 
-这里收集的 skill 只用 Mac 上本来就有的东西——苹果系统框架和内置命令行工具。不用 `pip install`，不用 `brew install tesseract`，不用 API key，数据不出本机。
+这里收集的 skill 只用 Mac 上本来就有的东西——苹果系统框架和内置命令行工具。不用 `pip install`，不用 `brew install`，不用 API key，数据不出本机。**这个仓库的定义就是零依赖**：需要装东西的，就不属于这里。
 
-**一个例外，先说在前面：** `fuyao-mac-cleanup` 是 [Mole](https://github.com/tw93/Mole)（`brew install mole`）的调度层，没有自己重写清理逻辑——一次删错东西的代价比装一个依赖高得多。其余四个是真零依赖。
+> 想清理磁盘？那个需要外部引擎，所以单独成库：[**fuyao-mac-cleanup**](https://github.com/fuyaoai/fuyao-mac-cleanup)。
 
 > **语言：** [English](./README.md) | 中文（简体）
 >
@@ -35,7 +35,6 @@
 | [`fuyao-mac-ocr-lite`](./skills/fuyao-mac-ocr-lite/) | 图片 / 截图 / **PDF** 提文字（文字层直读 + 扫描件逐页 OCR 兜底），默认中英混排 | Swift（系统自带） |
 | [`fuyao-mac-stt-lite`](./skills/fuyao-mac-stt-lite/) | 语音转文字，带标点和时间戳分段，中文实测 **~38 倍实时** | macOS 26+、Swift |
 | [`fuyao-mac-spotlight`](./skills/fuyao-mac-spotlight/) | `mdfind` 全盘找文件——按文件名、正文、类型、时间、尺寸 | 无 |
-| ⚠️ [`fuyao-mac-cleanup`](./skills/fuyao-mac-cleanup/) | 安全腾磁盘空间：dry-run 先行、硬红线、保护 agent 自己的记忆目录。**唯一需要装东西的 skill** | `brew install mole` |
 | [`fuyao-mac-builtin`](./skills/fuyao-mac-builtin/) | 内置命令速查：`say`、`pbcopy`、`sips`、`textutil`、`caffeinate`、系统通知…… | 无 |
 
 每个 skill 目录里有 `SKILL.md`（给 agent 读的说明），需要时带一个 `scripts/`。
@@ -76,7 +75,6 @@ swift skills/fuyao-mac-stt-lite/scripts/transcribe.swift 播客.m4a
 - macOS（这些都是苹果框架，Linux/Windows 不适用）
 - Swift 工具链——随 Command Line Tools 自带，通常已经有了：`xcode-select --install`
 - `fuyao-mac-stt-lite` 需要 **macOS 26+**（SpeechAnalyzer API）
-- `fuyao-mac-cleanup` 需要 [Mole](https://github.com/tw93/Mole)：`brew install mole`
 
 ## 说明
 
